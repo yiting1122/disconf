@@ -1,0 +1,12 @@
+FROM hub.c.163.com/public/nodejs:0.12.2
+
+COPY ./ /srv/www
+
+WORKDIR /srv/www
+
+#base installed cnpm
+#RUN npm install -g cnpm --registry=https://r.cnpmjs.org
+
+RUN cnpm install -d
+
+CMD ["node","${runServer!'app.js'}"]
